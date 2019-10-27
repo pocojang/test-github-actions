@@ -19,7 +19,7 @@ jobs:
         uses: github-actions-x/commit@v2.2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          push-branch: 'build'
+          push-branch: 'master'
           commit-message: 'publish'
           force-add: 'true'
       - name: Bump version and push tag
