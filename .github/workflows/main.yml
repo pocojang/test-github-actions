@@ -20,10 +20,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Autotagger
-        uses: jaliborc/action-general-autotag@1.0.0
-        with:
-          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
-          source_file: 'package.json'
-          extraction_regex: "(\\d+\\.\\d+\\.\\d+)"
-          tag_format: 'v{version}'
+      - name: Bump version and push tag
+        uses: anothrNick/github-tag-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WITH_V: true
