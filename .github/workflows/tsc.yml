@@ -21,8 +21,8 @@ jobs:
       - name: Build and Deploy
         uses: jeoy/github-deploy-actions@master
         env:
-          COMMIT_EMAIL: ${{ secrets }}
-          COMMIT_NAME: ${{ secrets }}
+          COMMIT_EMAIL: devJang2016@gmail.com
+          COMMIT_NAME: devJang
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           BASE_BRANCH: master
           DEPLOY_BRANCH: build
