@@ -15,14 +15,13 @@ jobs:
         run: |
           yarn build
 
-      - name: Create a built branch
-        run: |
-          git config --global user.email "devJang2016@gmail.com"
-          git config --global user.name "devJang"
-          git checkout build
-          git add -A && git commit -m "Upload Build File"
-          git push --force -u origin build
-
+      - name: Git Commit and Push
+        uses: github-actions-x/commit@v2.2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          push-branch: 'build'
+          commit-message: 'publish'
+          force-add: 'true'
       - name: Bump version and push tag
         uses: anothrNick/github-tag-action@master
         env:
