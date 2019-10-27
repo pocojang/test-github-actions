@@ -21,6 +21,7 @@
     "typescript": "^3.7.0-beta"
   },
   "devDependencies": {
+    "@actions/core": "^1.2.0",
     "@typescript-eslint/eslint-plugin": "^2.5.0",
     "@typescript-eslint/parser": "^2.5.0",
     "eslint": "^6.6.0",

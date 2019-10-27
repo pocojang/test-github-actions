@@ -4,11 +4,15 @@ on:
   push:
     branches:
       - master
+      - 'releases/*'
 
 jobs:
   build:
     name: Test Github action
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
       - run: yarn install
       - run: yarn build
