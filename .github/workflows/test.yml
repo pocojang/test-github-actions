@@ -1,0 +1,10 @@
+name: test actions
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  - name: run console
+  - run: echo test
