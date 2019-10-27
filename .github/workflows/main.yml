@@ -7,14 +7,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
 
-      - name: Build and Deploy
-        uses: JamesIves/github-pages-deploy-action@master
-        env:
-          ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BASE_BRANCH: master # The branch the action should deploy from.
-          BRANCH: build # The branch the action should deploy to.
-          FOLDER: ./
-          BUILD_SCRIPT: yarn && yarn build # The build script the action should run prior to deploying.
+      - name: Run yarn install
+        run: |
+          yarn
+
+      - name: Run yarn build
+        run: |
+          yarn build
+
+      - name: Create a built branch
+        run: |
+          git config --global user.email "devJang2016@gmail.com"
+          git config --global user.name "devJang"
+          git checkout build
+          git add -A && git commit -m "Upload Build File"
+          git push --force -u origin build
+
       - name: Bump version and push tag
         uses: anothrNick/github-tag-action@master
         env:
