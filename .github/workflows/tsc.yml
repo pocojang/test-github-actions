@@ -25,3 +25,4 @@ jobs:
           BASE_BRANCH: master
           DEPLOY_BRANCH: build
           BUILD_SCRIPT: yarn && yarn build
+          FOLDER: ./build
