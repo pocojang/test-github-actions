@@ -16,7 +16,7 @@ jobs:
           fetch-depth: 1
       - run: yarn install
       - run: yarn build
-      - run: git add ./build
-      - run: git commit -m 'Build File'
-      - run: git push origin master
+      - uses: mikeal/publish-to-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: chmod +x ./deploy-tag.sh
