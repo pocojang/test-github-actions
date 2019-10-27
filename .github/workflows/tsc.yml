@@ -11,12 +11,20 @@ jobs:
     name: Test Github action
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - name: Checkout
+        uses: actions/checkout@v1
         with:
           fetch-depth: 1
+
       - run: yarn install
       - run: yarn build
-      - uses: mikeal/publish-to-github-action@master
+      - name: Build and Deploy
+        uses: jeoy/github-deploy-actions@master
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: chmod +x ./deploy-tag.sh
+          COMMIT_EMAIL: ${{ secrets }}
+          COMMIT_NAME: ${{ secrets }}
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          BASE_BRANCH: master
+          DEPLOY_BRANCH: build
+          BUILD_SCRIPT: yarn && yarn build
+          FOLDER: build
