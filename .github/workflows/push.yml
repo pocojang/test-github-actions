@@ -1,4 +1,5 @@
-name: Push
+name: publish
+
 on:
   push:
     branches:
@@ -8,16 +9,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Create local changes
-        run: |
-          yarn
-          yarn build
-      - name: Commit files
-        run: |
-          git config --local user.email "devjang2016@gmail.com"
-          git config --local user.name "devJang"
-          git commit -m "Add changes" -a
-      - name: Push changes
-        uses: ad-m/github-push-action@master
+      - name: checkout
+        uses: actions/checkout@master
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          ref: master
+      - run: yarn install
+      - run: yarn build
+      - name: Git Commit and Push
+        uses: github-actions-x/commit@v2.2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          push-branch: 'build'
+          commit-message: 'build'
+          force-add: 'true'
+          files: build/
