@@ -23,4 +23,3 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           push-branch: build
           commit-message: 'Update Build'
-          rebase: 'true'
