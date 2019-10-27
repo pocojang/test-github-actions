@@ -22,4 +22,3 @@ jobs:
           push-branch: 'build'
           commit-message: 'build'
           force-add: 'true'
-          files: build/
