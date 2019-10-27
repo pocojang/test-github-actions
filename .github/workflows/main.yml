@@ -16,12 +16,9 @@ jobs:
           yarn build
 
       - name: Git Commit and Push
-        uses: github-actions-x/commit@v2.2
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          push-branch: 'master'
-          commit-message: 'publish'
-          force-add: 'true'
+      - uses: mikeal/publish-to-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Bump version and push tag
         uses: anothrNick/github-tag-action@master
         env:
