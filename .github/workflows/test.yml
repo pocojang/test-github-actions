@@ -7,4 +7,4 @@ on:
 
 jobs:
   - name: run console
-  - run: echo test
+    run: echo test
