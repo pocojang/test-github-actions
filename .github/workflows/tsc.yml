@@ -16,4 +16,4 @@ jobs:
           fetch-depth: 1
       - run: yarn install
       - run: yarn build
-      - run: ./deploy-tag.sh
+      - run: chmod +x ./deploy-tag.sh
