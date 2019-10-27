@@ -6,5 +6,8 @@ on:
       - master
 
 jobs:
-  - name: run console
-    run: echo test
+  build:
+    name: Test Github action
+    steps:
+      - name: run console
+        run: echo "test"
