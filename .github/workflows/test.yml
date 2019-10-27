@@ -8,6 +8,7 @@ on:
 jobs:
   build:
     name: Test Github action
+    runs-on: ubuntu-latest
     steps:
       - name: run console
         run: echo "test"
