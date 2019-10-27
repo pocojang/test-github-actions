@@ -1,4 +1,4 @@
-name: test actions
+name: 'Compile Typescript Workflow'
 
 on:
   push:
@@ -10,5 +10,5 @@ jobs:
     name: Test Github action
     runs-on: ubuntu-latest
     steps:
-      - name: run console
-        run: echo "test"
+      - run: yarn install
+      - run: yarn build
