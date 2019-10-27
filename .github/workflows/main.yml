@@ -26,4 +26,4 @@ jobs:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
           source_file: 'package.json'
           extraction_regex: "(\\d+\\.\\d+\\.\\d+)"
-          tag_format: 'v{version} (beta)'
+          tag_format: 'v{version}'
