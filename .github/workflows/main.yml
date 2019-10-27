@@ -20,10 +20,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: tagging
-      - uses: jaliborc/action-general-autotag@1.0.0
+      - name: Autotagger
+        uses: ButlerLogic/action-autotag@1.0.2
         with:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
-          source_file: 'package.json'
-          extraction_regex: "(\\d+\\.\\d+\\.\\d+)"
-          tag_format: 'v{version}'
+          tag_prefx: 'v'
