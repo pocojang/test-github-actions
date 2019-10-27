@@ -5,6 +5,8 @@ on:
     branches:
       - master
       - 'releases/*'
+  tags:
+    - v1
 
 jobs:
   build:
@@ -18,8 +20,6 @@ jobs:
 
       - name: Build
       - uses: actions/setup-node@v1
-        with:
-          node-version: 12
         - run: yarn install
         - run: yarn build
 
