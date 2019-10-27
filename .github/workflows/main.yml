@@ -15,10 +15,11 @@ jobs:
         run: |
           yarn build
 
-      - name: Git Commit and Push
-      - uses: mikeal/publish-to-github-action@master
+      - name: Push new files back to master.
+        uses: mikeal/publish-to-github-action@1.0.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Bump version and push tag
         uses: anothrNick/github-tag-action@master
         env:
