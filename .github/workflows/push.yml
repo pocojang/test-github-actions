@@ -14,8 +14,8 @@ jobs:
           yarn build
       - name: Commit files
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
+          git config --local user.email "devjang2016@gmail.com"
+          git config --local user.name "devJang"
           git commit -m "Add changes" -a
       - name: Push changes
         uses: ad-m/github-push-action@master
