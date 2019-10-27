@@ -1,24 +1,24 @@
-name: Bump version
-on:
-  push:
-    branches:
-      - master
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@master
-      - name: Github Build & Deploy Action
-        uses: jeoy/github-deploy-actions@v1.0.1
-        env:
-          COMMIT_EMAIL: test@gmail.com
-          ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BASE_BRANCH: master
-          DEPLOY_BRANCH: build
-          BUILD_SCRIPT: yarn && yarn build
-          FOLDER: ./build
-      - name: Bump version and push tag
-        uses: anothrNick/github-tag-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          WITH_V: true
+# name: Bump version
+# on:
+#   push:
+#     branches:
+#       - master
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@master
+#       - name: Github Build & Deploy Action
+#         uses: jeoy/github-deploy-actions@v1.0.1
+#         env:
+#           COMMIT_EMAIL: test@gmail.com
+#           ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#           BASE_BRANCH: master
+#           DEPLOY_BRANCH: build
+#           BUILD_SCRIPT: yarn && yarn build
+#           FOLDER: ./build
+#       - name: Bump version and push tag
+#         uses: anothrNick/github-tag-action@master
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#           WITH_V: true
