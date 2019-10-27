@@ -19,7 +19,6 @@ jobs:
           fetch-depth: 1
 
       - name: Build
-      - uses: actions/setup-node@v1
         - run: yarn install
         - run: yarn build
 
