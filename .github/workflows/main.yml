@@ -13,9 +13,11 @@ jobs:
           ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BASE_BRANCH: master # The branch the action should deploy from.
           BRANCH: build # The branch the action should deploy to.
+          FOLDER: ./
           BUILD_SCRIPT: yarn && yarn build # The build script the action should run prior to deploying.
       - name: Bump version and push tag
         uses: anothrNick/github-tag-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           WITH_V: true
+          DEFAULT_BUMP: true
