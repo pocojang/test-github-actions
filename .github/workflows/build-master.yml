@@ -7,6 +7,7 @@ on:
 jobs:
   build-master:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout Master Branch
       - uses: actions/checkout@v2
