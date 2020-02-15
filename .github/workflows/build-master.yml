@@ -12,7 +12,6 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: master
-      - name: Run yarn install
         run: yarn
       - name: Run yarn build
         run: yarn build
