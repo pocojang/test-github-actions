@@ -11,15 +11,13 @@ jobs:
       - name: Checkout Master Branch
       - uses: actions/checkout@v2
         with:
-          ref: my-branch
+          ref: develop
 
       - name: Run yarn install
-        run: |
-          yarn
+        run: yarn
 
       - name: Run yarn build
-        run: |
-          yarn build
+        run: yarn build
 
       - name: Push new files back to master.
         uses: mikeal/publish-to-github-action@1.0.0
