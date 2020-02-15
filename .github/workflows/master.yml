@@ -1,11 +1,17 @@
 name: Build and Deploy
-on: [push]
+on:
+  push: # master Branch 에서 push 이벤트가 일어났을 때만 수행
+    branches:
+      - master
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@master
+      - name: Checkout Master Branch
+      - uses: actions/checkout@v2
+        with:
+          ref: my-branch
 
       - name: Run yarn install
         run: |

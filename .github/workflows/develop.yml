@@ -1,0 +1,33 @@
+name: Build and Deploy
+on:
+  push: # master Branch 에서 push 이벤트가 일어났을 때만 수행
+    branches:
+      - develop
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Master Branch
+      - uses: actions/checkout@v2
+        with:
+          ref: my-branch
+
+      - name: Run yarn install
+        run: |
+          yarn
+
+      - name: Run yarn build
+        run: |
+          yarn build
+
+      - name: Push new files back to master.
+        uses: mikeal/publish-to-github-action@1.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Bump version and push tag
+        uses: anothrNick/github-tag-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WITH_V: true
