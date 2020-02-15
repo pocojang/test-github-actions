@@ -1,6 +1,6 @@
-name: Build and Deploy
+name: build-develop
 on:
-  push: # master Branch 에서 push 이벤트가 일어났을 때만 수행
+  push: # develop Branch 에서 push 이벤트가 일어났을 때만 수행
     branches:
       - develop
 
